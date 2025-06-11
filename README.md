@@ -36,7 +36,7 @@ cd sonDeprem
 
 ## 🌐 Canlı Demo
 
-[https://sonDepremler.vercel.app](https://sonDepremler.vercel.app)
+[https://son-deprem.vercel.app](https://son-deprem.vercel.app)
 
 ## 📱 Ekran Görüntüleri
 
