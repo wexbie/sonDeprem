@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr" class="karanlik">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deprem Takip</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kenar: "hsl(var(--kenar))",
+                        giris: "hsl(var(--giris))",
+                        halka: "hsl(var(--halka))",
+                        arkaplan: "hsl(var(--arkaplan))",
+                        yazi: "hsl(var(--yazi))",
+                        birincil: {
+                            DEFAULT: "hsl(var(--birincil))",
+                            yazi: "hsl(var(--birincil-yazi))",
+                        },
+                        ikincil: {
+                            DEFAULT: "hsl(var(--ikincil))",
+                            yazi: "hsl(var(--ikincil-yazi))",
+                        },
+                        tehlike: {
+                            DEFAULT: "hsl(var(--tehlike))",
+                            yazi: "hsl(var(--tehlike-yazi))",
+                        },
+                        soluk: {
+                            DEFAULT: "hsl(var(--soluk))",
+                            yazi: "hsl(var(--soluk-yazi))",
+                        },
+                        vurgu: {
+                            DEFAULT: "hsl(var(--vurgu))",
+                            yazi: "hsl(var(--vurgu-yazi))",
+                        },
+                        kart: {
+                            DEFAULT: "hsl(var(--kart))",
+                            yazi: "hsl(var(--kart-yazi))",
+                        },
+                    },
+                },
+            },
+            plugins: [
+                function({ addBase, theme }) {
+                    addBase({
+                        ':root': {
+                            '--arkaplan': '0 0% 100%',
+                            '--yazi': '222.2 84% 4.9%',
+                            '--kart': '0 0% 100%',
+                            '--kart-yazi': '222.2 84% 4.9%',
+                            '--soluk': '210 40% 96.1%',
+                            '--soluk-yazi': '215.4 16.3% 46.9%',
+                            '--birincil': '221.2 83.2% 53.3%',
+                            '--birincil-yazi': '210 40% 98%',
+                            '--ikincil': '210 40% 96.1%',
+                            '--ikincil-yazi': '222.2 47.4% 11.2%',
+                            '--tehlike': '0 84.2% 60.2%',
+                            '--tehlike-yazi': '210 40% 98%',
+                            '--vurgu': '210 40% 96.1%',
+                            '--vurgu-yazi': '222.2 47.4% 11.2%',
+                            '--kenar': '214.3 31.8% 91.4%',
+                            '--giris': '214.3 31.8% 91.4%',
+                            '--halka': '221.2 83.2% 53.3%',
+                            '--arkafon': '0 0% 100%'
+                        },
+                        '.karanlik': {
+                            '--arkaplan': '222.2 84% 4.9%',
+                            '--yazi': '210 40% 98%',
+                            '--kart': '222.2 84% 4.9%',
+                            '--kart-yazi': '210 40% 98%',
+                            '--soluk': '217.2 32.6% 17.5%',
+                            '--soluk-yazi': '215 20.2% 65.1%',
+                            '--birincil': '217.2 91.2% 59.8%',
+                            '--birincil-yazi': '222.2 47.4% 11.2%',
+                            '--ikincil': '217.2 32.6% 17.5%',
+                            '--ikincil-yazi': '210 40% 98%',
+                            '--tehlike': '0 62.8% 30.6%',
+                            '--tehlike-yazi': '210 40% 98%',
+                            '--vurgu': '217.2 32.6% 17.5%',
+                            '--vurgu-yazi': '210 40% 98%',
+                            '--kenar': '217.2 32.6% 17.5%',
+                            '--giris': '217.2 32.6% 17.5%',
+                            '--halka': '224.3 76.3% 48%',
+                            '--arkafon': '222.2 84% 4.9%'
+                        }
+                    });
+                }
+            ]
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-arkaplan font-sans antialiased">
+    <div class="relative flex min-h-screen">
+        <aside class="hidden md:flex flex-col w-72 bg-kart border-r border-kenar">
+            <div class="p-6 border-b border-kenar">
+                <h1 class="text-2xl font-bold tracking-tight">Deprem Takip</h1>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium bg-birincil text-birincil-yazi">
+                    <i class="ti ti-home"></i>
+                    Ana Sayfa
+                </a>
+                <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-soluk-yazi hover:bg-soluk" data-bildirim>
+                    <i class="ti ti-bell"></i>
+                    Bildirimler
+                </a>
+            </nav>
+        </aside>
+        <main class="flex-1">
+            <div class="container mx-auto p-6">
+                <header class="mb-8">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h1 class="text-3xl font-bold tracking-tight">Anlık Deprem Bilgileri</h1>
+                            <p class="text-soluk-yazi">Son depremler ve detaylı bilgiler</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="temaDegistir" class="p-2 rounded-lg hover:bg-soluk transition-colors">
+                                <i class="ti ti-sun hidden karanlik:block"></i>
+                                <i class="ti ti-moon block karanlik:hidden"></i>
+                            </button>
+                            <button class="md:hidden p-2 rounded-lg hover:bg-soluk transition-colors mobil-menu-buton">
+                                <i class="ti ti-menu-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-kart rounded-lg border border-kenar p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold mb-2">Toplam Deprem</h3>
+                        <p class="text-3xl font-bold" id="toplamDeprem">0</p>
+                    </div>
+                    <div class="bg-kart rounded-lg border border-kenar p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold mb-2">En Yüksek Büyüklük</h3>
+                        <p class="text-3xl font-bold" id="maksimumBuyukluk">0.0</p>
+                    </div>
+                    <div class="bg-kart rounded-lg border border-kenar p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold mb-2">Son Deprem</h3>
+                        <p class="text-xl" id="sonDeprem">-</p>
+                    </div>
+                </div>
+                <div class="bg-kart rounded-lg border border-kenar shadow-sm">
+                    <div class="p-6 border-b border-kenar">
+                        <h2 class="text-2xl font-semibold tracking-tight">Son Depremler</h2>
+                    </div>
+                    <div class="p-6">
+                        <div id="depremListesi" class="space-y-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="mobilMenuArkafon" class="fixed inset-0 bg-arkaplan/80 backdrop-blur-sm z-40 hidden"></div>
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-kart border-t border-kenar">
+        <nav class="flex justify-around p-4">
+            <a href="#" class="flex flex-col items-center text-birincil">
+                <i class="ti ti-home"></i>
+                <span class="text-xs mt-1">Ana Sayfa</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-soluk-yazi" data-bildirim>
+                <i class="ti ti-bell"></i>
+                <span class="text-xs mt-1">Bildirimler</span>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

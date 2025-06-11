@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--renk-arkaplan);
+    color: var(--renk-yazi);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-feature-settings: "rlig" 1, "calt" 1;
+}
+.yanmenu {
+    transition: all 0.3s ease;
+    background-color: hsl(var(--kart));
+    border-color: hsl(var(--kenar));
+}
+.yanmenu nav a {
+    transition: all 0.2s ease;
+}
+.yanmenu nav a:hover {
+    background-color: hsl(var(--soluk));
+}
+#mobilMenuArkafon {
+    background-color: hsla(var(--arkafon), 0.8);
+    backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+@media (max-width: 768px) {
+    main {
+        padding-bottom: 80px;
+    }
+}
+.deprem-oge {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--renk-kenar);
+    border-radius: 0.5rem;
+}
+.deprem-oge:hover {
+    @apply shadow-md;
+}
+.buyukluk-6plus {
+    border-left: 4px solid #dc2626;
+}
+.buyukluk-5 {
+    border-left: 4px solid #ea580c;
+}
+.buyukluk-4 {
+    border-left: 4px solid #d97706;
+}
+.buyukluk-3 {
+    border-left: 4px solid #ca8a04;
+}
+.buyukluk-2 {
+    border-left: 4px solid #65a30d;
+}
+.buyukluk-1 {
+    border-left: 4px solid #16a34a;
+}
+.buyukluk-0 {
+    border-left: 4px solid #0891b2;
+}
+:root {
+    --renk-birincil: #3b82f6;
+    --renk-birincil-yazi: #ffffff;
+    --renk-arkaplan: #ffffff;
+    --renk-yazi: #1f2937;
+    --renk-soluk-yazi: #6b7280;
+    --renk-kenar: #e5e7eb;
+    --kart: 0 0% 100%;
+    --kart-yazi: 222.2 84% 4.9%;
+    --soluk: 210 40% 96.1%;
+    --soluk-yazi: 215.4 16.3% 46.9%;
+    --birincil: 221.2 83.2% 53.3%;
+    --birincil-yazi: 210 40% 98%;
+    --ikincil: 210 40% 96.1%;
+    --ikincil-yazi: 222.2 47.4% 11.2%;
+    --tehlike: 0 84.2% 60.2%;
+    --tehlike-yazi: 210 40% 98%;
+    --vurgu: 210 40% 96.1%;
+    --vurgu-yazi: 222.2 47.4% 11.2%;
+    --giris: 214.3 31.8% 91.4%;
+    --halka: 221.2 83.2% 53.3%;
+    --arkafon: 0 0% 100%;
+}
+.karanlik {
+    --renk-birincil: #60a5fa;
+    --renk-birincil-yazi: #ffffff;
+    --renk-arkaplan: #111827;
+    --renk-yazi: #f9fafb;
+    --renk-soluk-yazi: #9ca3af;
+    --renk-kenar: #374151;
+    --kart: 222.2 84% 4.9%;
+    --kart-yazi: 210 40% 98%;
+    --soluk: 217.2 32.6% 17.5%;
+    --soluk-yazi: 215 20.2% 65.1%;
+    --birincil: 217.2 91.2% 59.8%;
+    --birincil-yazi: 222.2 47.4% 11.2%;
+    --ikincil: 217.2 32.6% 17.5%;
+    --ikincil-yazi: 210 40% 98%;
+    --tehlike: 0 62.8% 30.6%;
+    --tehlike-yazi: 210 40% 98%;
+    --vurgu: 217.2 32.6% 17.5%;
+    --vurgu-yazi: 210 40% 98%;
+    --giris: 217.2 32.6% 17.5%;
+    --halka: 224.3 76.3% 48%;
+    --arkafon: 222.2 84% 4.9%;
+}
+* {
+    @apply border-kenar;
+}
+.bg-kart {
+    background-color: hsl(var(--kart));
+}
+.kenar {
+    border-color: hsl(var(--kenar));
+}
+.text-soluk-yazi {
+    color: var(--renk-soluk-yazi);
+}
+.text-birincil {
+    color: var(--renk-birincil);
+}
+.text-birincil-yazi {
+    color: var(--renk-birincil-yazi);
+}
+.bg-birincil {
+    background-color: var(--renk-birincil);
+}
+.bg-soluk {
+    background-color: hsl(var(--soluk));
+}
+#sonGuncelleme {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: hsl(var(--soluk));
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--soluk-yazi));
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--birincil));
+}
